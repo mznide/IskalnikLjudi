@@ -21,7 +21,7 @@ request.setCharacterEncoding("UTF-8");
 <body>
 
 	<div class="header">		
-		<form method="post" action="isciServlet" >
+		<form method="post" action="IskanjeOsebeHandlerServlet" >
 		<input type="text" name="nameOfPerson"  placeholder="Ime in priimek" class="imePriimek">
 		<input type="submit" value="Isci osebo" class="styled-button-9">
 		</form>

@@ -30,7 +30,7 @@
 <body>
 
 		<div class="header">		
-			<form method="post" action="isciServlet" >
+			<form method="post" action="IskanjeOsebeHandlerServlet" >
 			<input type="text" name="nameOfPerson" value="<%=iskanaOseba %>" class="imePriimek">
 			<input type="submit" value="Isci osebo" class="styled-button-9">
 			</form>

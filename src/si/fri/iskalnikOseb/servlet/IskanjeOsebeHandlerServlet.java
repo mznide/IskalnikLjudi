@@ -22,7 +22,7 @@ import si.fri.iskalnikOseb.dataHelpers.ZdravnikiData;
 /**
  * Servlet implementation class isciServlet
  */
-@WebServlet("/isciServlet")
+@WebServlet("/IskanjeOsebeHandlerServlet")
 public class IskanjeOsebeHandlerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

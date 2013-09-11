@@ -10,7 +10,7 @@
 </head>
 <div>
 	<div class="center">
-		<form method="post" action="isciServlet">
+		<form method="post" action="IskanjeOsebeHandlerServlet">
 			<img alt="My banner" src="css/clovecki.png" /> <br /> <input
 				type="text" name="nameOfPerson" placeholder="Ime in priimek"
 				class="imePriimek"> <input type="submit"
@@ -20,21 +20,21 @@
 	<div class="right">
 		<div class="right1">
 		<a
-				href="isciServlet?nameOfPerson=Borut Pahor">Borut Pahor</a>, <a
-				href="isciServlet?nameOfPerson=Janez Ahlin">Janez Ahlin</a>, <a
-				href="isciServlet?nameOfPerson=Peter Čeferin">Peter Čeferin</a>, <a
-				href="isciServlet?nameOfPerson=Cvitan Goran">Cvitan Goran</a>, <a
-				href="isciServlet?nameOfPerson=Zupanc Unita">Zupanc Unita</a>, <a
-				href="isciServlet?nameOfPerson=Janez Novak">Janez Novak</a>, <a
-				href="isciServlet?nameOfPerson=Matej Žnideric">Matej Žnideric</a>,
-				<a href="isciServlet?nameOfPerson=Prelc Alenka">Alenka Prelc</a>,
-				<a href="isciServlet?nameOfPerson=Ralca Katarina">Nenad Latinović</a>,
-				<a href="isciServlet?nameOfPerson=Ralca Katarina">Katarina Ralc</a>,
-				<a href="isciServlet?nameOfPerson=Vučko Marija">Vučko Marija</a>,
-				<a href="isciServlet?nameOfPerson=Marjan Hrušovar">Marjan Hrušovar</a>,
-				<a href="isciServlet?nameOfPerson=Janez Verk">Janez Verk</a>,
-				<a href="isciServlet?nameOfPerson=Jelena Čivić">Jelena Čivić</a>,
-				<a href="isciServlet?nameOfPerson=Janez Tekavc">Janez Tekavc</a>
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Borut Pahor">Borut Pahor</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Janez Ahlin">Janez Ahlin</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Peter Čeferin">Peter Čeferin</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Cvitan Goran">Cvitan Goran</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Zupanc Unita">Zupanc Unita</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Janez Novak">Janez Novak</a>, <a
+				href="IskanjeOsebeHandlerServlet?nameOfPerson=Matej Žnideric">Matej Žnideric</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Prelc Alenka">Alenka Prelc</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Ralca Katarina">Nenad Latinović</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Ralca Katarina">Katarina Ralc</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Vučko Marija">Vučko Marija</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Marjan Hrušovar">Marjan Hrušovar</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Janez Verk">Janez Verk</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Jelena Čivić">Jelena Čivić</a>,
+				<a href="IskanjeOsebeHandlerServlet?nameOfPerson=Janez Tekavc">Janez Tekavc</a>
 		</div>
 	</div>
 </div>
