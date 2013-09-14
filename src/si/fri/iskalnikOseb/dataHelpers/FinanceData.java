@@ -134,6 +134,7 @@ public class FinanceData {
 		// dobi linke od clankov:
 	//	List<HtmlElement> linkiClankov = (List<HtmlElement>) page
 		//		.getByXPath("//*[@id=\"maincolumn\"]/table[1]/tbody/tr[2]/td/table[1]/tbody/tr/td[2]/a");
+		@SuppressWarnings("unchecked")
 		List<HtmlElement> linkiClankov = (List<HtmlElement>) page
 						.getByXPath("//*[@id=\"maincolumn\"]/p/dl/dd/a[2]");
 		ArrayList<Povezava> skupnePovezave = new ArrayList<Povezava>();
@@ -209,7 +210,7 @@ class ValueComparator implements Comparator<FinanceStructure> {
 				return b.getStClankov() - a.getStClankov();
 			
 		}
-	}
+}
 
 class Povezava {
 	String imePovezave;

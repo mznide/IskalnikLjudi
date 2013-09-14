@@ -6,10 +6,11 @@ public class FinanceStructure {
 	private static ArrayList<FinanceStructure> vsePovezave= new ArrayList<FinanceStructure>();
 	
 	private String imePovezave;
-	private ArrayList<String> clanki = new ArrayList<String>();
+	private ArrayList<String> clanki;
 	
 	public FinanceStructure(String imePovezave, String clanek){
 		this.imePovezave = imePovezave;
+		clanki = new ArrayList<String>();
 		clanki.add(clanek);
 		vsePovezave.add(this);
 	}
@@ -36,6 +37,10 @@ public class FinanceStructure {
 		}
 		return 
 			null;
+	}
+	
+	public static void clearVsePovezave() {
+		vsePovezave = new ArrayList<FinanceStructure>();
 	}
 
 }

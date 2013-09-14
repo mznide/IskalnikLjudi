@@ -50,6 +50,7 @@ public class IskanjeOsebeHandlerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		FinanceStructure.clearVsePovezave();
 		request.setCharacterEncoding("UTF-8");
 		String nameOfPerson = request.getParameter("nameOfPerson");
 		try {
@@ -75,7 +76,7 @@ public class IskanjeOsebeHandlerServlet extends HttpServlet {
 			request.getSession().setAttribute("clanki", clanki);
 
 			response.sendRedirect("izpisZadetkov.jsp");
-
+			return;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
