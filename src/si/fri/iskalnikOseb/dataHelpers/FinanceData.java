@@ -93,6 +93,8 @@ public class FinanceData {
 		//treba klikniti ve�
 		final HtmlElement vecButton = page3
 				.getFirstByXPath("//*[@id=\"maincolumn\"]/table[1]/tbody/tr[2]/td/h3[1]/a");
+		if (vecButton== null)
+			return null;
 		HtmlPage page4 = vecButton.click();
 	//	HtmlElement elm = page4.getFirstByXPath("//*[@id=\"maincolumn\"]/p/dl/dd/a[2]");
 		ArrayList<Povezava> skupnePovezave = pridobiPovezave(page4);	
@@ -204,12 +206,8 @@ class ValueComparator implements Comparator<FinanceStructure> {
 
 		@Override
 		public int compare(FinanceStructure a, FinanceStructure b) {
-			if (a.getStClankov() >= b.getStClankov()) {
-				return -1;
-			}
-			else {
-				return 1;
-			}
+				return b.getStClankov() - a.getStClankov();
+			
 		}
 	}
 

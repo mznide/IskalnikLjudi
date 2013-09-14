@@ -1,13 +1,28 @@
 package si.fri.iskalnikOseb.dataHelpers;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.apache.bcel.generic.GETSTATIC;
+import org.apache.commons.logging.LogFactory;
+import org.w3c.css.sac.CSSException;
+import org.w3c.css.sac.CSSParseException;
+import org.w3c.css.sac.ErrorHandler;
+
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.IncorrectnessListener;
+import com.gargoylesoftware.htmlunit.ScriptException;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HTMLParserListener;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
+import com.gargoylesoftware.htmlunit.javascript.JavaScriptErrorListener;
 
 /**
  * Razred za luscenje podatkov iz TISa
@@ -22,9 +37,11 @@ public class TisData {
 	 */
 	public static TisStructure[] submittingForm(String name) throws Exception {
 
-		final WebClient webClient = new WebClient(BrowserVersion.FIREFOX_10);
+		/**final WebClient webClient = new WebClient(BrowserVersion.FIREFOX_10);
 		webClient.getOptions().setJavaScriptEnabled(false);
-
+		webClient.getOptions().setCssEnabled(false);
+		webClient.getOptions().setThrowExceptionOnScriptError(false);*/
+		WebClient webClient = getSilentClient(); 
 		// Posljemo zahtevo za osnovno stran
 		final HtmlPage page = webClient.getPage("http://www.itis.si/");
 
@@ -35,7 +52,7 @@ public class TisData {
 		final HtmlTextInput textFieldIme = form
 				.getInputByName("ctl00$CPH_bodyMain$loginSearch$tbSearchPhoneBookWhoOrWhat");
 		textFieldIme.setValueAttribute(name);
-		
+
 		final HtmlTextInput textFieldKraj = form
 				.getInputByName("ctl00$CPH_bodyMain$loginSearch$tbSearchPhoneBookWhere");
 		textFieldKraj.setValueAttribute("");
@@ -72,15 +89,116 @@ public class TisData {
 		return vseOsebe;
 
 	}
-	
+
 	/**
-	private static boolean aliSeImeUjema(String iskanoIme, String najdenoIme){
-		String[] razdeli = iskanoIme.split(" ");
-		String[] razdeli1 = najdenoIme.split(" ");
+	 * private static boolean aliSeImeUjema(String iskanoIme, String
+	 * najdenoIme){ String[] razdeli = iskanoIme.split(" "); String[] razdeli1 =
+	 * najdenoIme.split(" ");
+	 * 
+	 * 
+	 * return false; }
+	 */
+
+	/**
+	 * 
+	 * @return Firefox_10 client that doesn't print CSS and javascript errors
+	 * HtmlUnit library is very strict and prints 
+	 */
+	public static WebClient getSilentClient() {
+		LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log",
+				"org.apache.commons.logging.impl.NoOpLog");
+
+		Logger.getLogger("com.gargoylesoftware.htmlunit")
+				.setLevel(Level.OFF);
+		java.util.logging.Logger.getLogger("org.apache.commons.httpclient")
+				.setLevel(Level.OFF);
+
+		WebClient webClient = new WebClient(BrowserVersion.FIREFOX_10);
+		webClient.getOptions().setJavaScriptEnabled(false);
+		webClient.getOptions().setCssEnabled(false);
+		webClient.getOptions().setThrowExceptionOnScriptError(false);
+
+		webClient.setIncorrectnessListener(new IncorrectnessListener() {
+			
+			@Override
+			public void notify(String arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+			
+		webClient.setCssErrorHandler(new ErrorHandler() {
+			
+			@Override
+			public void warning(CSSParseException arg0) throws CSSException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void fatalError(CSSParseException arg0) throws CSSException {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void error(CSSParseException arg0) throws CSSException {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+
+		webClient.setJavaScriptErrorListener(new JavaScriptErrorListener() {
+
+			@Override
+			public void timeoutError(HtmlPage arg0, long arg1, long arg2) {
+				// TODO Auto-generated method stub
+
+			}
+
+
+			@Override
+			public void malformedScriptURL(HtmlPage arg0, String arg1,
+					MalformedURLException arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void scriptException(HtmlPage arg0, ScriptException arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+			@Override
+			public void loadScriptError(HtmlPage arg0, URL arg1, Exception arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		
-		return false;
+		webClient.setHTMLParserListener(new HTMLParserListener() {
+
+			@Override
+			public void error(String arg0, URL arg1, String arg2, int arg3,
+					int arg4, String arg5) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void warning(String arg0, URL arg1, String arg2, int arg3,
+					int arg4, String arg5) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+		});
+
+		return webClient;
 	}
-	*/
 
 }
